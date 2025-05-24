@@ -7,6 +7,7 @@ import path from "path";
 import os from "os";
 import ContainerSessionManager from "./ContainerSessionManager.js";
 import { jwtVerify } from "jose";
+import crypto from "crypto";
 
 const manager = new ContainerSessionManager();
 const wss = new WebSocketServer({ port: 4987 });
