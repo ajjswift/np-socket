@@ -22,6 +22,8 @@ wss.on("connection", async (ws, req) => {
 
   const token = cookies.session_token;
 
+  console.log("Found token", token);
+
   if (!token) {
     ws.close(4001, "No session token");
     return;
