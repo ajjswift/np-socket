@@ -22,23 +22,22 @@ wss.on("connection", async (ws, req) => {
 
   const token = cookies.session_token;
 
-  console.log("Found token", token);
-
   if (!token) {
-    ws.close(4001, "No session token");
-    return;
+      ws.close(4001, "No session token");
+      return;
   }
 
   try {
-    const { payload } = await jwtVerify(
-      token,
-      new TextEncoder().encode(process.env.JWT_SECRET)
-    );
-    // Attach user info to ws for later use
-    ws.user = payload;
+      const { payload } = await jwtVerify(
+          token,
+          new TextEncoder().encode(process.env.JWT_SECRET)
+      );
+      // Attach user info to ws for later use
+      ws.user = payload;
   } catch (err) {
-    ws.close(4002, "Invalid session token");
-    return;
+      console.error(err);
+      ws.close(4002, "Invalid session token");
+      return;
   }
 
   const sessionId = uuidv4();
