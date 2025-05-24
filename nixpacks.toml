@@ -1,6 +1,19 @@
 [phases.setup]
 nixPkgs = [
+  "nodejs_18",
   "python3",
   "gcc",
-  "gnumake"
+  "gnumake",
+  "curl",
+  "wget"
+]
+
+[phases.install]
+cmds = [
+  "npm install"
+]
+
+[phases.start]
+cmds = [
+  "npm run start"
 ]
