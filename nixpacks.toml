@@ -7,13 +7,3 @@ nixPkgs = [
   "curl",
   "wget"
 ]
-
-[phases.install]
-cmds = [
-  "npm install"
-]
-
-[phases.start]
-cmds = [
-  "npm run start"
-]
