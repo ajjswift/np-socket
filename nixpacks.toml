@@ -6,5 +6,6 @@ nixPkgs = [
   "gnumake",
   "curl",
   "wget",
-  "bash"
+  "bash",
+  "docker"
 ]
